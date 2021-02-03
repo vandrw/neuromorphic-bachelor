@@ -4,3 +4,6 @@ data/*
 .vscode/*
 
 quantify/chords.txt
+
+*.pkl
+*.txt
