@@ -24,6 +24,11 @@ Self Notes:
 
     entropy is uncertainity
     infor_content is surprise
+
+TODO:
+    - check against figure 1A
+    - look into IDyOM Python
+    - update ngram code
 """
 
 
