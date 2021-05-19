@@ -1,5 +1,7 @@
 background/*
 data/*
+!data/get_data.sh
+!data/extract_data.py
 
 .vscode/*
 
@@ -7,3 +9,6 @@ quantify/chords.txt
 
 *.pkl
 *.txt
+
+musegan
+bachelor_py
