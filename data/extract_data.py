@@ -6,9 +6,8 @@ import argparse
 
 def moveFiles(origin, dest, ext, prev, skip):
     new_name = ""
-    # traverse root directory, and list directories as dirs and files as files
+    # traverse root directory and its folders
     for root, _, files in os.walk(origin):
-        # print("Extracting from ", root.split(os.sep)[-1])
         for file_name in files:
             i = 0
             extension = file_name.split(".")[-1]
@@ -24,11 +23,14 @@ def moveFiles(origin, dest, ext, prev, skip):
                 if prev == 0:
                     while os.path.exists(target_path):
                         new_name = (
-                            file_name.split(".")[0] + "_Copy" + str(i) + "." + file_name.split(".")[1]
+                            file_name.split(".")[0]
+                            + "_Copy"
+                            + str(i)
+                            + "."
+                            + file_name.split(".")[1]
                         )
                         i += 1
                         target_path = os.path.join(dest, new_name)
-                        exit_cond = 1
 
                 else:
                     new_name = "_".join(root.split(os.sep)[-prev:]) + "_" + file_name
@@ -36,12 +38,12 @@ def moveFiles(origin, dest, ext, prev, skip):
                 target_path = os.path.join(dest, new_name)
                 print("[INFO] Moving ' {} ' to  ' {} '".format(file_name, target_path))
 
-                # shutil.copy2(init_path, target_path)
+                shutil.copy2(init_path, target_path)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    
+
     parser.add_argument(
         "-a",
         "--append",
@@ -49,20 +51,20 @@ if __name__ == "__main__":
         default=0,
         help="How many folder names should be appended to the destination file name. Useful when files have the same name, but placed in different folders.",
     )
-    
+
     parser.add_argument(
         "-s",
         "--skip",
         action="store_true",
         default=False,
-        help="Skip duplicate files when copying."
+        help="Skip duplicate files when copying.",
     )
 
     parser.add_argument(
         "-y",
         action="store_true",
         default=False,
-        help="Does not ask for user confirmation."
+        help="Does not ask for user confirmation.",
     )
 
     parser.add_argument(

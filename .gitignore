@@ -3,7 +3,7 @@ data/*
 !data/get_data.sh
 !data/extract_data.py
 
-.vscode/*
+.vscode
 
 quantify/chords.txt
 
@@ -11,4 +11,6 @@ quantify/chords.txt
 *.txt
 
 musegan
-bachelor_py
+MelodyRNN
+midi-rnn
+menv
